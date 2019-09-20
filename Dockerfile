@@ -15,7 +15,7 @@ RUN make build-docker
 ######## Start a new stage from scratch #######
 FROM scratch
 
-COPY --from=builder /app/go-scaffold /usr/local/bin/
+COPY --from=builder /app/dependinger /usr/local/bin/
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 RUN adduser -D executor
 USER executor
@@ -23,4 +23,4 @@ USER executor
 ######## Modify after this line ########
 
 EXPOSE 8080
-ENTRYPOINT ["go-scaffold"]
+ENTRYPOINT ["dependinger"]
