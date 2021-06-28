@@ -1,4 +1,4 @@
-PROJECT := go-scaffold
+PROJECT := dependinger
 VERSION := $(shell cat VERSION)
 XC_OS 	:= linux darwin
 XC_ARCH := 386 amd64 arm
@@ -51,7 +51,7 @@ build-docker:
 	@scripts/build.sh docker
 
 .PHONY: dist
-dist: 
+dist:
 	@scripts/dist.sh
 
 .PHONY: fmt
@@ -69,7 +69,7 @@ test:
 .PHONY: coverage
 coverage:
 	@scripts/test.sh coverage
-	
+
 .PHONY: docker
 docker: build-docker
 	@scripts/docker.sh
